@@ -36,22 +36,11 @@
 # OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
 # ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-import random
-
 chars = "0123456789abcdef"
-uuid = ""
 
-for i in range(8):
-  uuid += random.choice(chars)
+uuid = [select(chars) for i in range(32)]
 
-uuid += "-"
+[ uuid.insert(i, "-") for i in [8, 13, 18, 23] ]
 
-for i in range(3):
-  for i in range(4):
-    uuid += random.choice(chars)
-  uuid += "-"
-
-for i in range(12):
-  uuid += random.choice(chars)
-
+uuid = "".join(uuid)
 print(uuid)
