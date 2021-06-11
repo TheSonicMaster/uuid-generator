@@ -36,26 +36,22 @@
 # OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
 # ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-from random import choice as select
+import random
 
-chars = ["0","1","2","3","4","5","6","7","8","9","a","b","c","d","e","f"]
-
+chars = "0123456789abcdef"
 uuid = ""
 
-for i in range(1,9):
-    char = select(chars)
-    uuid += char
+for i in range(8):
+  uuid += random.choice(chars)
 
 uuid += "-"
 
-for i in range(1,4):
-    for i in range(1,5):
-        char = select(chars)
-        uuid += char
-    uuid += "-"
+for i in range(3):
+  for i in range(4):
+    uuid += random.choice(chars)
+  uuid += "-"
 
-for i in range(1,13):
-    char = select(chars)
-    uuid += char
+for i in range(12):
+  uuid += random.choice(chars)
 
 print(uuid)
